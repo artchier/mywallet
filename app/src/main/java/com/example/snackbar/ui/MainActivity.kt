@@ -7,13 +7,15 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.snackbar.R
+import com.example.snackbar.`interface`.ContractMainActivity
 import com.example.snackbar.domain.Usuario
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.tab_entrada.*
 import kotlinx.android.synthetic.main.tab_gastos.*
 import kotlinx.android.synthetic.main.tab_home.*
 
-class MainActivity : AppCompatActivity() {
+
+class MainActivity : AppCompatActivity(), ContractMainActivity {
 
     val TAG: String = "MainActivity"
 
@@ -101,6 +103,14 @@ class MainActivity : AppCompatActivity() {
 
     fun showToast(msg: String){
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+    }
+
+    override fun callDetailGastos(){
+        val fragDetailGastos = DetailGastosFragment.newInstance("Lista De Gastos")
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.flFragment, fragDetailGastos)
+            commit()
+        }
     }
 
 }
