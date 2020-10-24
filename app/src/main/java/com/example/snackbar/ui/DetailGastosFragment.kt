@@ -20,7 +20,7 @@ class DetailGastosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view: View = inflater!!.inflate(R.layout.fragment_new, container, false)
+        val view: View = inflater!!.inflate(R.layout.fragment_detail_gastos, container, false)
         return view
     }
 
